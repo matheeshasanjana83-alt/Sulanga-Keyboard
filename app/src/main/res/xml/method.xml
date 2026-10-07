@@ -993,6 +993,15 @@
         android:isAsciiCapable="false"
     />
     <subtype android:icon="@drawable/ic_ime_switcher"
+        android:label="@string/subtype_singlish_si"
+        android:subtypeId="0x5c6b3bdf"
+        android:imeSubtypeLocale="si_LK"
+        android:languageTag="si-LK"
+        android:imeSubtypeMode="keyboard"
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=MAIN:qwerty,CombiningRules=si_singlish,EmojiCapable"
+        android:isAsciiCapable="true"
+    />
+    <subtype android:icon="@drawable/ic_ime_switcher"
         android:label="@string/subtype_generic"
         android:subtypeId="0x8e94d413"
         android:imeSubtypeLocale="sk"
