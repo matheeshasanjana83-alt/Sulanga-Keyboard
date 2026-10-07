@@ -2,7 +2,7 @@ name: Build Sulanga APK
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, sulanga ]
   workflow_dispatch:
 
 jobs:
