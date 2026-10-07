@@ -15,8 +15,8 @@ android {
         applicationId = "lk.sulanga.keyboard"
         minSdk = 21
         targetSdk = 36
-        versionCode = 4110
-        versionName = "1.0"
+        versionCode = 4111
+        versionName = "1.1"
         ndk {
             abiFilters.clear()
             abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))

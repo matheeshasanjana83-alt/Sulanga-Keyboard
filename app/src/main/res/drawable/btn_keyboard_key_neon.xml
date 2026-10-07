@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sulanga neon key background. SPDX-License-Identifier: GPL-3.0-only -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Action keys (enter): filled, tinted with accent -->
+    <item android:state_active="true" android:state_pressed="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_pressed" />
+    <item android:state_active="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_filled" />
+    <!-- Toggle keys -->
+    <item android:state_checkable="true" android:state_pressed="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_pressed" />
+    <item android:state_checkable="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_outline" />
+    <!-- Empty background keys -->
+    <item android:state_empty="true" android:state_pressed="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_pressed" />
+    <item android:state_empty="true"
+          android:drawable="@android:color/transparent" />
+    <!-- Normal keys -->
+    <item android:state_pressed="true"
+          android:drawable="@drawable/btn_keyboard_key_neon_pressed" />
+    <item android:drawable="@drawable/btn_keyboard_key_neon_outline" />
+</selector>

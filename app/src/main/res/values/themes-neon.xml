@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sulanga Keyboard neon style (based on Rounded_Base_Border). SPDX-License-Identifier: GPL-3.0-only -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="KeyboardTheme.Neon" parent="KeyboardTheme.Rounded_Base_Border">
+        <item name="keyboardStyle">@style/Keyboard.Neon</item>
+        <item name="keyboardViewStyle">@style/KeyboardView.Neon</item>
+        <item name="mainKeyboardViewStyle">@style/MainKeyboardView.Neon</item>
+        <item name="emojiPalettesViewStyle">@style/EmojiPalettesView.Neon</item>
+        <item name="clipboardHistoryViewStyle">@style/ClipboardHistoryView.Neon</item>
+    </style>
+    <style name="Keyboard.Neon" parent="Keyboard">
+        <item name="themeId">NeonBorder</item>
+    </style>
+    <style name="KeyboardView.Neon" parent="KeyboardView.Rounded_Base_Border">
+        <item name="keyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="spacebarBackground">@drawable/btn_keyboard_key_neon</item>
+    </style>
+    <style name="MainKeyboardView.Neon" parent="MainKeyboardView.Rounded_Base_Border">
+        <item name="keyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="spacebarBackground">@drawable/btn_keyboard_key_neon</item>
+    </style>
+    <style name="EmojiPalettesView.Neon" parent="EmojiPalettesView.Rounded_Base_Border">
+        <item name="keyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="spacebarBackground">@drawable/btn_keyboard_key_neon</item>
+    </style>
+    <style name="ClipboardHistoryView.Neon" parent="ClipboardHistoryView.Rounded_Base_Border">
+        <item name="keyBackground">@drawable/btn_keyboard_key_neon</item>
+        <item name="functionalKeyBackground">@drawable/btn_keyboard_key_neon</item>
+    </style>
+</resources>

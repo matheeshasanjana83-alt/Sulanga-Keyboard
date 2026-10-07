@@ -65,7 +65,9 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
         const val THEME_PINK = "pink"
         const val THEME_SAND = "sand"
         const val THEME_VIOLETTE = "violette"
+        const val THEME_NEON = "neon" // Sulanga
         fun getAvailableDefaultColors(prefs: SharedPreferences, isNight: Boolean) = listOfNotNull(
+            THEME_NEON,
             if (!isNight) THEME_LIGHT else null, THEME_DARK,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) THEME_DYNAMIC else null,
             if (prefs.getString(Settings.PREF_THEME_STYLE, Defaults.PREF_THEME_STYLE) == STYLE_HOLO) THEME_HOLO_WHITE else null,
@@ -91,6 +93,7 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
         private const val THEME_ID_LXX_BASE_BORDER = 2
         private const val THEME_ID_ROUNDED_BASE = 3
         private const val THEME_ID_ROUNDED_BASE_BORDER = 4
+        private const val THEME_ID_NEON = 5
         private const val DEFAULT_THEME_ID = THEME_ID_LXX_BASE
 
         private val KEYBOARD_THEMES = arrayOf(
@@ -98,7 +101,8 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
             KeyboardTheme(THEME_ID_LXX_BASE, R.style.KeyboardTheme_LXX_Base),
             KeyboardTheme(THEME_ID_LXX_BASE_BORDER, R.style.KeyboardTheme_LXX_Base_Border),
             KeyboardTheme(THEME_ID_ROUNDED_BASE, R.style.KeyboardTheme_Rounded_Base),
-            KeyboardTheme(THEME_ID_ROUNDED_BASE_BORDER, R.style.KeyboardTheme_Rounded_Base_Border)
+            KeyboardTheme(THEME_ID_ROUNDED_BASE_BORDER, R.style.KeyboardTheme_Rounded_Base_Border),
+            KeyboardTheme(THEME_ID_NEON, R.style.KeyboardTheme_Neon)
         )
 
         // named colors, with names from old settings
@@ -118,7 +122,13 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
             val prefs = context.prefs()
             val style = prefs.getString(Settings.PREF_THEME_STYLE, Defaults.PREF_THEME_STYLE)
             val borders = prefs.getBoolean(Settings.PREF_THEME_KEY_BORDERS, Defaults.PREF_THEME_KEY_BORDERS)
-            val matchingId = when (style) {
+            val isNight = SettingsActivity.forceNight
+                ?: (ResourceUtils.isNight(context.resources) && prefs.getBoolean(Settings.PREF_THEME_DAY_NIGHT, Defaults.PREF_THEME_DAY_NIGHT))
+            val colorName = SettingsActivity.forceTheme ?: if (isNight)
+                prefs.getString(Settings.PREF_THEME_COLORS_NIGHT, Defaults.PREF_THEME_COLORS_NIGHT)
+            else
+                prefs.getString(Settings.PREF_THEME_COLORS, Defaults.PREF_THEME_COLORS)
+            val matchingId = if (colorName == THEME_NEON && style != STYLE_HOLO) THEME_ID_NEON else when (style) {
                 STYLE_HOLO -> THEME_ID_HOLO_BASE
                 STYLE_ROUNDED -> if (borders) THEME_ID_ROUNDED_BASE_BORDER else THEME_ID_ROUNDED_BASE
                 else -> if (borders) THEME_ID_LXX_BASE_BORDER else THEME_ID_LXX_BASE
@@ -322,6 +332,20 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
                     Color.WHITE,
                     Color.BLACK,
                     Color.BLACK,
+                    keyboardBackground = backgroundImage
+                )
+                THEME_NEON -> DefaultColors( // Sulanga neon: black background, cyan outlined keys, blue enter
+                    themeStyle,
+                    true,
+                    "#2979FF".toColorInt(), // accent (enter key)
+                    "#000000".toColorInt(), // background
+                    "#00E5FF".toColorInt(), // key outline
+                    "#00E5FF".toColorInt(), // functional key outline
+                    "#00E5FF".toColorInt(), // space bar outline
+                    "#00E5FF".toColorInt(), // key text
+                    "#4DD0E1".toColorInt(), // hint text
+                    "#00E5FF".toColorInt(), // suggestion text
+                    "#00E5FF".toColorInt(), // space bar text
                     keyboardBackground = backgroundImage
                 )
                 THEME_VIOLETTE -> DefaultColors(

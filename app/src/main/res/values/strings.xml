@@ -748,6 +748,8 @@ New dictionary:
     <string name="theme_name_sand" tools:keep="@string/theme_name_sand">Sand</string>
     <!-- Theme name for violette theme -->
     <string name="theme_name_violette" tools:keep="@string/theme_name_violette">Violette</string>
+    <!-- Sulanga neon theme -->
+    <string name="theme_name_neon" tools:keep="@string/theme_name_neon">Neon</string>
     <!-- Theme name for user-defined theme -->
     <string name="theme_name_user" tools:keep="@string/theme_name_user">User-Defined</string>
     <!-- Theme name for user-defined theme night mode theme -->

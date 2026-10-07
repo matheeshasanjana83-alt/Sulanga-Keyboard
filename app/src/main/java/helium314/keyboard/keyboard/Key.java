@@ -1093,6 +1093,9 @@ public class Key implements Comparable<Key> {
 
             boolean needsToUpcase = needsToUpcase(mLabelFlags, params.mId.getElement());
             Locale localeForUpcasing = params.mId.getLocale();
+            // Sulanga: Singlish types latin letters (capitals matter: L=ළ, N=ණ, Th=ථ), so upcase like English
+            if ("singlish".equals(params.mId.getSubtype().getMainLayoutName()))
+                localeForUpcasing = Locale.ENGLISH;
             int actionFlags = 0;
             if (params.mId.getElement().isNumberLayout())
                 actionFlags = ACTION_FLAGS_NO_KEY_PREVIEW;

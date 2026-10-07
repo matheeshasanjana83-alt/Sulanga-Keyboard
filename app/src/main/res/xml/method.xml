@@ -998,7 +998,7 @@
         android:imeSubtypeLocale="si_LK"
         android:languageTag="si-LK"
         android:imeSubtypeMode="keyboard"
-        android:imeSubtypeExtraValue="KeyboardLayoutSet=MAIN:qwerty,CombiningRules=si_singlish,EmojiCapable"
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=MAIN:singlish,CombiningRules=si_singlish,EmojiCapable"
         android:isAsciiCapable="true"
     />
     <subtype android:icon="@drawable/ic_ime_switcher"
